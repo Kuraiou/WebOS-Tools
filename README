@@ -11,3 +11,30 @@ var YourAssistant = Class.create(AssistantBase, {})
 where the data in the hash is the class's functions and member variables. For more information on Prototype's Class.create() function, see http://www.prototypejs.org/api/class/create .
 
 As a heads up, if you do want to override setup, cleanup, or deactivate, add $super as the first parameter for those functions, then call $super() as the first line.
+
+===========
+
+Preferences
+
+To use:
+
+1. put Preferences.js into your app/models folder.
+2. In sources.json, add: {"source": "app/models/Preferences.js"}
+3. set up the defaults. I personally have this as a global in stage-assistant.js. Defaults need to be a hash in the following form:
+
+{
+    1: { // version number
+        preference1: 'default for pref1',
+        preference2: 'default for pref2'
+    },
+    2: { // next version
+        preference3: 'default for pref3'
+    }
+}
+
+4. Now, whenever you need to add a new preference option, you simply add a version number and that preference, and it's automatically handled!
+
+Ways to use:
+
+1. For every assistant, have a preferences member variable that is a new Preferences object(passing in the name and defaults, of course); call 'load' as necessary, which will usually be in your activate function.
+2. Have a global Preferences object.
