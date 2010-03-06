@@ -23,10 +23,17 @@ var AssistantBase = Class.create({
      * If a function begins with setup (e.g. setupButton), it will call that
      * function. If it begins with do (e.g. doSelectUser) it will bind the
      * 'this' context to that user.
+     *
+     * In addition, it will add the 'pixi' class name to the body if the
+     * user is using a pixi. This way, a secondary CSS can be set up that
+     * checks body.pixi style and has new widths.
      * 
      * setup occurs automatically the first time an assistant is called.
      */
     setup: function() {
+        if(Mojo.Environment.DeviceInfo.touchableRows < 8) {
+            document.body.addClassName('pixi');
+        }
         for (i in this) {
             if (typeof this[i] == 'function') {
                 if (i.indexOf('setup') == 0 && i.length > 'setup'.length) {
