@@ -10,7 +10,7 @@ var YourAssistant = Class.create(AssistantBase, {})
 
 where the data in the hash is the class's functions and member variables. For more information on Prototype's Class.create() function, see http://www.prototypejs.org/api/class/create .
 
-As a heads up, if you do want to override setup, cleanup, or deactivate, add $super as the first parameter for those functions, then call $super() as the first line.
+As a heads up, if you do want to override initialize, setup, cleanup, or deactivate, add $super as the first parameter for those functions, then call $super() as the first line.
 
 ===========
 

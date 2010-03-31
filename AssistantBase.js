@@ -1,15 +1,11 @@
 /**
- * AssistantBase v1.0 by Fourth Draft Software
+ * AssistantBase v1.1 by Fourth Draft Software
  * 
  * A simple base class to inherit from for assistants, to simplify usage.
  * See README for more information.
  */
 
 var AssistantBase = Class.create({
-    /**
-     * The basic initialize function required of all classes.
-     */
-    initialize: function() {},
     /**
      * A hash of listeners added via addListener.
      */
@@ -18,6 +14,13 @@ var AssistantBase = Class.create({
      * A hash of listeners added via addActivateListener.
      */
     activateListeners: {},
+    /**
+     * The basic initialize function required of all classes. Sets defaults.
+     */
+    initialize: function() {
+        this.listeners = {};
+        this.activateListeners = {};
+	},
     /**
      * When setup is called, it checks through every function in the class.
      * If a function begins with setup (e.g. setupButton), it will call that
